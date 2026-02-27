@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolve Pro Toolkit | 11 Essential Plugins</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-darker: #08090d;
+            --bg-card: #12141c;
+            --accent-blue: #007aff;
+            --accent-purple: #bf5af2;
+            --accent-cyan: #5ac8fa;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --border-glow: 0 0 20px rgba(0, 122, 255, 0.3);
+        }
+
+        body {
+            background-color: var(--bg-darker);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        header {
+            background: radial-gradient(circle at top, #1e2235 0%, var(--bg-darker) 70%);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 1px solid #27272a;
+        }
+
+        .header-badge {
+            background: rgba(0, 122, 255, 0.1);
+            color: var(--accent-blue);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid rgba(0, 122, 255, 0.3);
+        }
+
+        header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin: 20px 0 10px;
+            font-weight: 900;
+            background: linear-gradient(to bottom, #fff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: -40px auto 60px;
+            padding: 0 24px;
+        }
+
+        /* Installation Master Card */
+        .master-install {
+            background: linear-gradient(145deg, #1a1d2e, #0f111a);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 60px;
+            border: 1px solid #3b3b4f;
+            box-shadow: var(--border-glow);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .master-install h2 {
+            flex: 1 1 100%;
+            margin: 0;
+            color: var(--accent-cyan);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .step-pill {
+            flex: 1;
+            min-width: 200px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid #27272a;
+        }
+
+        .step-num {
+            color: var(--accent-purple);
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* Plugin Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .plugin-card {
+            background-color: var(--bg-card);
+            border: 1px solid #27272a;
+            border-radius: 24px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .plugin-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-8px);
+            background-color: #161925;
+        }
+
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .plugin-card h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.5rem;
+        }
+
+        .status-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            background: #27272a;
+            color: var(--text-secondary);
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        .promo-tag {
+            background: rgba(90, 200, 250, 0.1);
+            color: var(--accent-cyan);
+            border: 1px dashed var(--accent-cyan);
+            padding: 6px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .guide-box {
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .guide-box h4 {
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .guide-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-list li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .guide-list li::before {
+            content: '•';
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        .btn-download {
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-download:hover {
+            background-color: var(--accent-blue);
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 80px 20px;
+            border-top: 1px solid #27272a;
+            color: var(--text-secondary);
+            background: var(--bg-darker);
+        }
+
+        .branding-text {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            .master-install { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <span class="header-badge">Optimization Guide</span>
+    <h1>Resolve Pro Toolkit</h1>
+    <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Automate your workflow with these curated DaVinci Resolve tools.</p>
+</header>
+
+<div class="container">
+    
+    <div class="master-install">
+        <h2><i class="fas fa-terminal"></i> Global Setup Guide</h2>
+        <div class="step-pill">
+            <span class="step-num">STEP 01</span>
+            <strong>Download Assets</strong>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Click the "Get Plugin" button to visit the source site.</p>
+        </div>
+        <div class="step-pill">
+            <span class="step-num">STEP 02</span>
+            <strong>Execute .drfx</strong>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Double-click the .drfx file to auto-install into Resolve.</p>
+        </div>
+        <div class="step-pill">
+            <span class="step-num">STEP 03</span>
+            <strong>Refresh Library</strong>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Find your tools in Effects > Titles or Effects > Fusion.</p>
+        </div>
+    </div>
+
+    <div class="grid">
+
+        <div class="plugin-card">
+            <div class="icon-box"><i class="fas fa-cubes"></i></div>
+            <span class="status-tag">Free Bundle</span>
+            <h3>Video Editor Studio 2.0</h3>
+            <div class="guide-box">
+                <h4>Deployment</h4>
+                <ul class="guide-list">
+                    <li>Find under <b>Effects > Titles</b>.</li>
+                    <li>Includes gradients and typewriter effects.</li>
+                    <li>Install all fonts first from the folder.</li>
+                </ul>
+            </div>
+            <a href="https://videoeditorstudio.com/" target="_blank" class="btn-download">
+                Download Pack <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="plugin-card">
+            <div class="icon-box"><i class="fas fa-comment-dots"></i></div>
+            <span class="status-tag">AI Powered</span>
+            <h3>Magic Subtitle</h3>
+            <div class="guide-box">
+                <h4>Deployment</h4>
+                <ul class="guide-list">
+                    <li>Find under <b>Titles > Magic Toolkit</b>.</li>
+                    <li>Select audio track in Inspector.</li>
+                    <li>Hit <b>Transcribe</b> for auto-captioning.</li>
+                </ul>
+            </div>
+            <a href="https://www.mralextech.com/magicsubtitlesprofree" target="_blank" class="btn-download">
+                Get Plugin <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="plugin-card">
+            <div class="icon-box"><i class="fas fa-broadcast-tower"></i></div>
+            <span class="status-tag">Audio Engine</span>
+            <h3>Soundly Place It</h3>
+            <div class="guide-box">
+                <h4>Deployment</h4>
+                <ul class="guide-list">
+                    <li>Enable in Preferences > Audio Plugins.</li>
+                    <li>Emulate 2D/3D spaces for sound effects.</li>
+                    <li>Great for radio or TV-style muffled audio.</li>
+                </ul>
+            </div>
+            <a href="https://getsoundly.com/tools/" target="_blank" class="btn-download">
+                Get Soundly <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="plugin-card">
+            <div class="icon-box"><i class="fas fa-search"></i></div>
+            <span class="status-tag">Motion Tool</span>
+            <h3>Magic Zoom</h3>
+            <div class="guide-box">
+                <h4>Deployment</h4>
+                <ul class="guide-list">
+                    <li>Use on an <b>Adjustment Clip</b>.</li>
+                    <li>Move the viewer crosshair to the zoom target.</li>
+                    <li>Adjust pitch & yaw for dramatic effect.</li>
+                </ul>
+            </div>
+            <a href="https://www.mralextech.com/magiczoomfree" target="_blank" class="btn-download">
+                Get Plugin <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="plugin-card">
+            <div class="icon-box"><i class="fas fa-magic"></i></div>
+            <span class="status-tag">Keyframe-Free</span>
+            <h3>Magic Animate</h3>
+            <div class="guide-box">
+                <h4>Deployment</h4>
+                <ul class="guide-list">
+                    <li>Apply to any footage or image asset.</li>
+                    <li>Combine <b>Spin, Whip, and Dissolve</b>.</li>
+                    <li>No complex keyframing required.</li>
+                </ul>
+            </div>
+            <a href="https://www.mralextech.com/magicanimatev3-free" target="_blank" class="btn-download">
+                Get Plugin <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="plugin-card">
+            <div class="icon-box"><i class="fas fa-clapperboard"></i></div>
+            <span class="status-tag">Pro VFX</span>
+            <div class="promo-tag">Use Code: <b>STAN 10</b></div>
+            <h3>Motion VFX Bundle</h3>
+            <div class="guide-box">
+                <h4>Deployment</h4>
+                <ul class="guide-list">
+                    <li>Search for "Free" in their library.</li>
+                    <li>Use <b>MC Cam Rig</b> for cinematic pans.</li>
+                    <li>High-end 3D elements for overlays.</li>
+                </ul>
+            </div>
+            <a href="https://motionvfx.sjv.io/ra1xDj" target="_blank" class="btn-download">
+                Get Free Assets <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="plugin-card">
+            <div class="icon-box"><i class="fas fa-object-group"></i></div>
+            <span class="status-tag">Colorist Tools</span>
+            <h3>Mononodes Tools</h3>
+            <div class="guide-box">
+                <h4>Deployment</h4>
+                <ul class="guide-list">
+                    <li>Apply <b>Magnifier</b> to highlight UI details.</li>
+                    <li>Use <b>Crop</b> for rounded edge effects.</li>
+                    <li>Ideal for tutorial makers and creators.</li>
+                </ul>
+            </div>
+            <a href="https://mononodes.com/tools/" target="_blank" class="btn-download">
+                Get Tools <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="plugin-card">
+            <div class="icon-box"><i class="fas fa-bullseye"></i></div>
+            <span class="status-tag">Edit Page Tracking</span>
+            <h3>Tracked Image & Text</h3>
+            <div class="guide-box">
+                <h4>Deployment</h4>
+                <ul class="guide-list">
+                    <li>Find under <b>Effects > Stirling Supply</b>.</li>
+                    <li>Activate <b>Fusion Overlay</b> to see tracker.</li>
+                    <li>Hit <b>Track Forward</b> for instant results.</li>
+                </ul>
+            </div>
+            <a href="https://stirlingsupply.co/en-gbp/collections/plugins-and-presets/2" target="_blank" class="btn-download">
+                Get Tracker <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="plugin-card">
+            <div class="icon-box"><i class="fas fa-scroll"></i></div>
+            <span class="status-tag">Paper Style</span>
+            <h3>Paper Animator V2</h3>
+            <div class="guide-box">
+                <h4>Deployment</h4>
+                <ul class="guide-list">
+                    <li>Works on PNGs, Logos, and Green Screen.</li>
+                    <li>Automatically applies a paper cutout edge.</li>
+                    <li>Adjust <b>Wander</b> slider for movement.</li>
+                </ul>
+            </div>
+            <a href="https://mrjustinedits.com/en-gbp/products/paper-animator-v2-free-version" target="_blank" class="btn-download">
+                Get Plugin <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="plugin-card">
+            <div class="icon-box"><i class="fas fa-film"></i></div>
+            <span class="status-tag">Cinematic FX</span>
+            <h3>Slow Shutter Effect</h3>
+            <div class="guide-box">
+                <h4>Deployment</h4>
+                <ul class="guide-list">
+                    <li>Drag onto your clip in the timeline.</li>
+                    <li>Adjust <b>Trail Length</b> for motion blur.</li>
+                    <li>Set <b>Drop Frames</b> for the jittery look.</li>
+                </ul>
+            </div>
+            <a href="https://shop.thecreativeherd.ca/p/slow-shutter-davinci-resolve-effect/" target="_blank" class="btn-download">
+                Get Plugin <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="plugin-card">
+            <div class="icon-box"><i class="fas fa-rocket"></i></div>
+            <span class="status-tag">Batch Animation</span>
+            <h3>Asset Blaster</h3>
+            <div class="guide-box">
+                <h4>Deployment</h4>
+                <ul class="guide-list">
+                    <li>Found in <b>Fusion Effects</b> panel.</li>
+                    <li>Grouped settings for fast PNG animation.</li>
+                    <li>Apply VHS, Shake, or JPEG glow easily.</li>
+                </ul>
+            </div>
+            <a href="https://www.europeanfilmmaker.com/shop/p/asset-blaster" target="_blank" class="btn-download">
+                Get Plugin <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p style="margin-bottom: 5px;">&copy; 2026 Resolve Pro Toolkit. Curated for the Editing Community.</p>
+    <div class="branding-text">
+        <b><i>Umer Malik: Where Craft Meets Research</i></b>
+    </div>
+</footer>
+
+</body>
+</html>
