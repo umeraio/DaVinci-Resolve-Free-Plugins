@@ -31,6 +31,30 @@
             padding: 80px 20px;
             text-align: center;
             border-bottom: 1px solid #27272a;
+            position: relative;
+        }
+
+        .home-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            border: 1px solid #27272a;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .home-btn:hover {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
         }
 
         .header-badge {
@@ -235,12 +259,16 @@
         @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr; }
             .master-install { padding: 24px; }
+            .home-btn { position: static; display: inline-flex; margin-bottom: 20px; }
         }
     </style>
 </head>
 <body>
 
 <header>
+    <a href="https://umeraio.github.io/Tools-Downloads/" class="home-btn">
+        <i class="fas fa-home"></i> Home
+    </a>
     <span class="header-badge">Optimization Guide</span>
     <h1>Resolve Pro Toolkit</h1>
     <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Automate your workflow with these curated DaVinci Resolve tools.</p>
@@ -461,7 +489,6 @@
 </div>
 
 <footer>
-    <p style="margin-bottom: 5px;">&copy; 2026 Resolve Pro Toolkit. Curated for the Editing Community.</p>
     <div class="branding-text">
         <b><i>Umer Malik: Where Craft Meets Research</i></b>
     </div>
